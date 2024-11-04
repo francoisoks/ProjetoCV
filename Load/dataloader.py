@@ -89,19 +89,18 @@ class Dataloader:
         print("Nova estrutura criada")
 
     def compose(self) -> dict: 
-        
-        trans_test = A.Compose([
+        process_test = A.Compose([
             A.Resize(height=self._size,width=self._size),
             ToTensorV2()
         ])
-        trans_train = A.Compose([
+        process_train = A.Compose([
             A.Resize(height=self._size,width=self._size),
             ToTensorV2()
         ])
         return {
-            'train':trans_train,
-            'test':trans_test,
-            'val':trans_test
+            'train':process_train,
+            'test':process_test,
+            'val':process_test
         }
 
     def get_dataloader(self, split: str) -> DataLoader:
@@ -112,7 +111,8 @@ class Dataloader:
             dataset = Subset(dataset, range(self._subset))
         dataloader = DataLoader(dataset, batch_size=self._batch_size, shuffle=self._shuffle)
         
-       
+        if self._description:
+            pass
       
         
         return dataloader
