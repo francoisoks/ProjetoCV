@@ -102,6 +102,7 @@ class Dataloader:
             'test':process_test,
             'val':process_test
         }
+    
 
     def get_dataloader(self, split: str) -> DataLoader:
         # retornar o dataloader baseado no split

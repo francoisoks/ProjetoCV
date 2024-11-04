@@ -7,7 +7,7 @@ if __name__ == '__main__':
     DATASET='data_set'
     CLASSE_DIR=['normal','stage1']
     STRUCT  = True
-    BATCH_SIZE=1
+    BATCH_SIZE=2
 
     obj_dataloader = Load.Dataloader(DATASET, batch_size=BATCH_SIZE, size=512, shuffle=True, description=True)
     
